@@ -6,11 +6,15 @@
 
 .login-red-btn {
   width: 100%;
-  background: #ea352d;
-  border: 1px solid #ea352d;
-  color: #fff;
+  /* background: #ea352d; */
+  border: 1px solid #FFCC99;
+  background: #FFCC99;
+  /* border: 1px solid #ea352d; */
+  border: 1px solid #FFCC99;
+  font-color: black;
   line-height: 48px;
   font-size: 14px;
+  margin-top: 5vh;
   cursor: pointer;
 }
 
