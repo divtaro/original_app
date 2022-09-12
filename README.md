@@ -19,9 +19,10 @@
 | ------------------- | ----------- | ------------------------------ |
 | title               | string      | null: false, unique: true      | 
 | shooting_month_id   | integer     | null: false                    | 
+| shooting_week_id    | integer     | null: false                    | 
 | impression_point    | text        | null: false                    | 
 | parking_presence_id | integer     |                                | 
-| parking_Fee_id      | integer     |                                | 
+| parking_fee_id      | integer     |                                | 
 | nearest_station     | string      |                                | 
 | walking_time_id     | integer     |                                | 
 | shooting_location   | text        | null: false                    | 
