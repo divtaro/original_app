@@ -6,7 +6,7 @@
   <div class="items-sell-main">
     <h2 class="items-sell-title">投稿ページ</h2>
     <%= form_with model: @post, url: posts_path, local: true do |f| %>
-    <%#= render 'shared/error_messages', model: f.object %>
+    <%= render 'shared/error_messages', model: f.object %>
 
     <div class="img-upload">
       <div class="weight-bold-text">
@@ -103,7 +103,7 @@
         撮影地の住所
         <span class="indispensable">必須</span>
       </div>  
-      <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"例）山梨県富士吉田市浅間２−３３５３", maxlength:"40" %>
+      <%= f.text_area :shooting_location, class:"items-text", id:"item-name", placeholder:"例）山梨県富士吉田市浅間２−３３５３", maxlength:"40" %>
     </div>
 
     <div class="items-detail">
