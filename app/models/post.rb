@@ -5,25 +5,27 @@ class Post < ApplicationRecord
   validates :shooting_month_id,   presence: true
   validates :shooting_week,       presence: true
   validates :impression_point,    presence: true
-  validates :parking_presence_id
-  validates :parking_fee_id 
-  validates :nearest_station
-  validates :walking_time_id
+  # validates :parking_presence_id, presence: true
+  # validates :parking_fee_id,      presence: true 
+  # validates :nearest_station,     presence: true
+  # validates :walking_time_id,     presence: true
   validates :shooting_location,   presence: true
-  validates :other_information
+  # validates :other_information
   validates :image,               presence: true
 
   # ** ジャンルの選択が「---」の時は保存できないようにする
   validates :shooting_month_id,   numericality: { other_than: 1, message: "can't be blank" }
-  validates :shooting_week,       numericality: { other_than: 1, message: "can't be blank" }
+  validates :shooting_week_id,    numericality: { other_than: 1, message: "can't be blank" }
+  # validates :parking_presence_id, numericality: { other_than: 1, message: "can't be blank" }
+  # validates :parking_fee_id,      numericality: { other_than: 1, message: "can't be blank" }
+  # validates :walking_time_id,     numericality: { other_than: 1, message: "can't be blank" }
 
-  # ** アソシエーション
-  # ** ↓userテーブルとのアソシエーションを組まないと、どのユーザーが出品するのかが判らないため、出品データを保存できない。
+  # ** テーブル間のアソシエーション
   belongs_to       :user
   has_many         :comments
   has_one_attached :image
 
-  # ActiveHash
+  # ActiveHashとのアソシエーション
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :shooting_month
   belongs_to :shooting_week
