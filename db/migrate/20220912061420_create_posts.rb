@@ -11,6 +11,7 @@ class CreatePosts < ActiveRecord::Migration[6.0]
       t.integer    :walking_time_id
       t.text       :shooting_location,  null: false
       t.text       :other_information
+      t.references :user,               foreign_key: true
       t.timestamps
     end
   end
