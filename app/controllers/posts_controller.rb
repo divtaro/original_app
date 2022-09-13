@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @post = Post.order('id DESC')
+    @posts = Post.order('id DESC')
   end
 
   def new
