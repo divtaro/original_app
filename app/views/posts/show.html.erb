@@ -147,7 +147,8 @@
           </div>
         </div>
         <div class='delete-btn'>
-           <div>削除</div>
+          <div><%= link_to '削除', post_path(@post.id), method: :delete %>
+          </div>
         </div>
       </div>
     </div>
