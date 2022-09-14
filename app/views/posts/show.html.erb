@@ -1,0 +1,188 @@
+<%= render "shared/header" %>
+
+<div class='post-show-page-main'>
+  <div class='post-box'>
+    <div class='image-map-area'>
+      <div class="post-image">
+        <div class="post-title">
+          <%= @post.title %>
+        </div>
+        <%= image_tag @post.image, class: 'image_size' %>
+      </div>
+      <div class="shooting-location-map">
+      Googleマップ
+      </div>
+    </div>
+
+    <div class='go-icon-area'>
+      <div class='want-go-area'>
+        <div class='want-go-text'>
+          <div>行きたい！</div>
+        </div>
+        <div class='want-go-icon'>
+        </div>
+         <div class='want-go-count'>
+        </div>
+      </div>
+
+      <div class='went-area'>
+        <div class='went-text'>
+          <div>行った！</div>
+        </div>
+        <div class='went-icon'>
+        </div>
+        <div class='went-count'>
+        </div>
+      </div>
+    </div>
+
+    <div class='comment-area-main'>
+      <div class='comment-area-sub'>
+        <div class='comment-form-area'>コメント入力欄
+        </div>
+        <div class='btn-area'>
+          <div class='cancel-btn'>
+             <div>キャンセル</div>
+          </div>
+          <div class='comment-btn'>
+          <div>コメント</div>
+          </div>
+        </div>
+      </div>
+
+      <div class='comment-display-area'>
+        <div class='comment-row'>
+          <div class='commenter'>コメント投稿者
+          </div>
+          <div class='comment-sentence'>コメント内容
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class='post-detail-area'>
+
+        <div class='impression-point'>
+          <div class='detail-title-01'>
+          感動ポイント
+          </div>
+          <div class='detail-sentence-01'>
+            <%= @post.impression_point %>
+          </div>
+        </div>
+
+        <div class='shooting-season'>
+          <div class='detail-title-01'>
+          撮影時期
+          </div>
+          <div class='detail-sentence-01'>
+            <%= @post.shooting_month.name  %><%= @post.shooting_week.name  %>
+          </div>
+        </div>
+
+        <div class='shooting-location'>
+          <div class='detail-title-01'>
+           撮影地
+          </div>
+          <div class='detail-sentence-01'>
+            <%= @post.shooting_location %>
+          </div>
+        </div>
+
+        <div class='parking'>
+          <div class='detail-title-02'>
+          周辺の駐車場
+          </div>
+          <div class='detail-sentence-02'>
+            <div class='detail-sentence-row1'>  
+              <%= @post.parking_presence.name %>
+            </div>
+            <div class='detail-sentence-row2'>
+              <%= @post.parking_fee.name %>
+            </div>
+          </div>
+        </div>
+
+         <div class='public-transport'> 
+          <div class='detail-title-03'>
+          最寄りの公共交通機関
+            <div class='detail-title-row1'>
+            駅名
+            </div>
+            <div class='detail-title-row2'>
+            駅からの徒歩時間
+            </div>
+            <div class='detail-title-row3'>
+            </div>
+          </div>
+          <div class='detail-sentence-03'>
+            <div class='detail-sentence-row1'>
+            </div>
+            <div class='detail-sentence-row2'>
+              <%= @post.nearest_station %>
+            </div>
+            <div class='detail-sentence-row3'>
+              <%= @post.walking_time.name %>
+            </div>
+          </div>
+        </div>
+
+        <div class='other-information'>
+          <div class='detail-title-other'>
+          補足情報
+          </div>
+          <div class='detail-sentence-other'>
+            <%= @post.other_information %>
+          </div>
+        </div>
+      </div>
+      
+
+
+      <div class='user-btn-area'>
+        <div class='edit-btn'>
+          <div>編集</div>
+        </div>
+        <div class='delete-btn'>
+           <div>削除</div>
+        </div>
+      </div>
+    </div>
+
+
+    <%# <div>あいうえお</div>
+    <div>あいうえお</div>  %>
+  </div>
+
+</div>
+
+
+<%# <div class='main'> %>
+
+  <%#= "#{@user.user_name}さんの投稿一覧" %>
+ <%# <div class='item-contents'> %>
+    <%# <h2 class='title'> %>
+    <%#= "#{@user.user_name}さんのPhotograph" %> 
+    
+    <%# </h2> %>
+    <%# <ul class='item-lists'> %>
+      <%# @posts.each do |post| %>
+        <%# <li class='list'> %>
+         <%#= link_to 'post_path(post.id)' do %>
+         <%# <div class='post-img-content'> %>
+          <%#= image_tag post.image, class: "post-img" %>
+          <%# end %>
+       
+      <%# </div>
+        <div class='item-info'>
+          <h3 class='item-name'> %>
+            <%#= post.title %>
+          <%# </h3> %>
+      
+        <%# </li> %>
+      <%# end %>
+    <%# </ul> %>
+  <%# </div> %>
+<%= render "shared/footer" %>
