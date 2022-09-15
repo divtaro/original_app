@@ -5,7 +5,8 @@ class CommentsController < ApplicationController
 
     @comment = Comment.new(comment_params)
     if @comment.save
-      ActionCable.server.broadcast "comment_channel", {comment: @comment, user: @comment.user}
+      @post = Post.find(params[:post_id])
+      CommentChannel.broadcast_to @post, { comment: @comment, user: @comment.user }
     end
   end
 
