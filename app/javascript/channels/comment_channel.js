@@ -12,7 +12,15 @@ if(location.pathname.match(/\/posts\/\d/)){
     },
 
     received(data) {
-      console.log(data)
+      const html = `
+      <div class='comment-row'>
+        <div class="user-info">${data.user.user_name}： </div>
+        <div class='comment-sentence'>${data.comment.text}</div>
+      </div>`
+      const comments = document.getElementById("comments")
+      comments.insertAdjacentHTML('beforeend', html)
+      const commentForm = document.getElementById("comment-form")
+      commentForm.reset();
     }
   })
 }
