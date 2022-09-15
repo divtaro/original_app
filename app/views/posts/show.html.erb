@@ -42,7 +42,7 @@
         <%# コメント入力欄 %>
         <div class='comment-form-area'>
           <% if user_signed_in? %>
-            <%= form_with(model: [@post, @comment], local: true) do |f| %>
+            <%= form_with model: [@post, @comment], id: "comment-form" do |f| %>  <%# id: "comment-form" はJSファイルで流用中 %>
               <%= f.text_area :text, placeholder: "コメントを追加", rows: "1", size: "135" %>
               <%= f.submit "コメント",class: "comment-btn" %>
             <% end %>
@@ -61,13 +61,15 @@
         <%# </div> %>
       </div>
 
-      <div class='comment-display-area'>
-        <h4>＜コメント一覧＞</h4>
+      <div class='comment-display-area' id="comments"> <%#  id="comments" はJSファイルで流用中 %>
+        <%# <h4>＜コメント一覧＞</h4> %>
           <% @post.comments.each do |comment| %>
+            <%# 以下のコードは、JSファイルでも流用中 %>
             <div class='comment-row'>
               <div class='commenter'><%= comment.user.user_name %>： </div>
               <div class='comment-sentence'><%= comment.text %></div>
             </div>
+            <%# 以上のコードは、JSファイルでも流用中 %>
           <% end %>
       </div>
     </div>  
