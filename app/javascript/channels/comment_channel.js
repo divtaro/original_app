@@ -1,7 +1,6 @@
 import consumer from "./consumer"
 
 if(location.pathname.match(/\/posts\/\d/)){
-  console.log("読み込み確認")
 
   consumer.subscriptions.create("CommentChannel", {
     connected() {
@@ -13,7 +12,7 @@ if(location.pathname.match(/\/posts\/\d/)){
     },
 
     received(data) {
-
+      console.log(data)
     }
   })
 }
