@@ -22,7 +22,7 @@ if(location.pathname.match(/\/posts\/\d/)){
         <div class='comment-sentence'>${data.comment.text}</div>
       </div>`
       const comments = document.getElementById("comments")
-      comments.insertAdjacentHTML('beforeend', html)
+      comments.insertAdjacentHTML('afterbegin', html)
       const commentForm = document.getElementById("comment-form")
       commentForm.reset();
     }
