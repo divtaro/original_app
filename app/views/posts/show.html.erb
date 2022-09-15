@@ -38,31 +38,43 @@
 
     <div class='comment-area-main'>
       <div class='comment-area-sub'>
-        <div class='comment-form-area'>コメント入力欄
+      
+        <%# コメント入力欄 %>
+        <div class='comment-form-area'>
+          <% if user_signed_in? %>
+            <%= form_with(model: [@post, @comment], local: true) do |f| %>
+              <%= f.text_area :text, placeholder: "コメントを追加", rows: "1", size: "135" %>
+              <%= f.submit "コメント",class: "comment-btn" %>
+            <% end %>
+          <% else %>
+            <%# <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong> %>
+          <% end %>
         </div>
-        <div class='btn-area'>
-          <div class='cancel-btn'>
+
+        <%# <div class='btn-area'> %>
+          <%# <div class='cancel-btn'>
              <div>キャンセル</div>
-          </div>
-          <div class='comment-btn'>
-          <div>コメント</div>
-          </div>
-        </div>
+          </div> %>
+          <%# <div class='comment-btn'>
+          <div>コメント</div> %>
+          <%# </div> %>
+        <%# </div> %>
       </div>
 
       <div class='comment-display-area'>
-        <div class='comment-row'>
-          <div class='commenter'>コメント投稿者
-          </div>
-          <div class='comment-sentence'>コメント内容
-          </div>
-        </div>
+        <h4>＜コメント一覧＞</h4>
+          <% @post.comments.each do |comment| %>
+            <div class='comment-row'>
+              <div class='commenter'><%= comment.user.user_name %>： </div>
+              <div class='comment-sentence'><%= comment.text %></div>
+            </div>
+          <% end %>
       </div>
+    </div>  
 
 
-
-
-      <div class='post-detail-area'>
+    <div class='post-detail-area-main'>
+      <div class='post-detail-area-sub'>
 
         <div class='impression-point'>
           <div class='detail-title-01'>
