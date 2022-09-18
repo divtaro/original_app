@@ -1,211 +1,115 @@
-<div class="items-sell-contents">
-  <header class="items-sell-header">
+<div class="post-contents">
+  <header class="post-header">
     <%= link_to image_tag('impression spot-logo-color.png' , size: '300x50'), "/" %>
 
   </header>
-  <div class="items-sell-main">
-    <h2 class="items-sell-title">投稿ページ</h2>
+  <div class="post-main">
+    <h2 class="post-title">投稿ページ</h2>
     <%= form_with model: @post, url: posts_path, local: true do |f| %>
     <%= render 'shared/error_messages', model: f.object %>
 
     <div class="img-upload">
-      <div class="weight-bold-text">
+      <div class="label-text">
         感動の1枚
         <span class="indispensable">必須</span>
       </div>
       <div class="click-upload">
         <p>
-          クリックしてファイルをアップロード
+          <%# クリックしてファイルをアップロード %>
         </p>
-        <%= f.file_field :image, id:"item-image" %>
+        <%= f.file_field :image, id:"post-image" %>
       </div>
     </div>
 
-    <div class="new-items">
-      <div class="weight-bold-text">
+    <div class="new-post">
+      <div class="label-text">
         タイトル
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"例）新倉山浅間公園（必須 40文字まで)", maxlength:"40" %>
+      <%= f.text_area :title, class:"title-form", id:"title-form", placeholder:"例）新倉山浅間公園（40文字まで)", maxlength:"40" %>
       
-      <div class="items-explain">
-        <div class="weight-bold-text">
+      <div class="post-explain">
+        <div class="label-text">
           感動ポイント
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :impression_point, class:"items-text", id:"item-info", placeholder:"例）富士山、五重塔、桜を一目に見ることができます（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
+        <%= f.text_area :impression_point, class:"impression-spot-form", id:"impression-spot-form", placeholder:"例）富士山、五重塔、桜を一目に見ることができます（1,000文字まで）" ,rows:"5" ,maxlength:"1000" %>
       </div>
     </div>
 
-     <div class="items-detail"> 
-      <div class="weight-bold-text">
+     <div class="post-detail"> 
+      <div class="label-text">
         撮影時期
         <span class="indispensable">必須</span>
       </div>
       <div class="form">
-        <div class="weight-bold-text">
+        <div class="label-text">
           撮影月
           <span class="indispensable">必須</span>
         </div>  
-        <%= f.collection_select(:shooting_month_id, ShootingMonth.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
-         <div class="weight-bold-text">
+        <%= f.collection_select(:shooting_month_id, ShootingMonth.all, :id, :name, {}, {class:"select-box", id:"shooting_month"}) %>
+         <div class="label-text">
           撮影週  
           <span class="indispensable">必須</span>
         </div> 
-        <%= f.collection_select(:shooting_week_id, ShootingWeek.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+        <%= f.collection_select(:shooting_week_id, ShootingWeek.all, :id, :name, {}, {class:"select-box", id:"shooting_week"}) %>
       </div>
     </div>
 
-    <div class="items-detail">
-    
-      <div class="weight-bold-text">周辺の駐車場（任意）</div>
+    <div class="post-detail">
+      <div class="label-text">周辺の駐車場（任意）</div>
       <div class="form">
-        <div class="weight-bold-text">
+        <div class="label-text">
           駐車場の有無（任意）
-          <%# <span class="indispensable">必須</span> %>
         </div>
 
-
-
-
-        <%= f.collection_select(:parking_presence_id, ParkingPresence.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
-        <div class="weight-bold-text">
+        <%= f.collection_select(:parking_presence_id, ParkingPresence.all, :id, :name, {}, {class:"select-box", id:"parking_presence"}) %>
+        <div class="label-text">
           駐車場代（任意）
-          <%# <span class="indispensable">必須</span> %>
         </div>
-        <%= f.collection_select(:parking_fee_id, ParkingFee.all, :id, :name, {}, {class:"select-box", id:"item-sales-status"}) %>
+        <%= f.collection_select(:parking_fee_id, ParkingFee.all, :id, :name, {}, {class:"select-box", id:"parking_fee"}) %>
       </div>
     </div>
 
-    <div class="items-detail">
-      <div class="weight-bold-text">公共交通機関（任意）</div>
+    <div class="post-detail">
+      <div class="label-text">公共交通機関（任意）</div>
       <div class="form">
-        <div class="weight-bold-text">
+        <div class="label-text">
           最寄り駅（任意）
-          <%# <span class="indispensable">必須</span> %>
         </div>
-        <%= f.text_area :nearest_station, class:"items-text", id:"item-name", placeholder:"例）下吉田駅", maxlength:"40" %>
+        <%= f.text_area :nearest_station, class:"nearest_station-form", id:"nearest_station", placeholder:"例）下吉田駅", rows:"2", maxlength:"40" %>
 
-
-
-
-        <%#= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
-        <div class="weight-bold-text">
+        <div class="label-text">
           最寄り駅からの徒歩時間（任意）
-          <%# <span class="indispensable">必須</span> %>
         </div>
-        <%= f.collection_select(:walking_time_id, WalkingTime.all, :id, :name, {}, {class:"select-box", id:"item-sales-status"}) %>
+        <%= f.collection_select(:walking_time_id, WalkingTime.all, :id, :name, {}, {class:"select-box", id:"walking_time"}) %>
       </div>
     </div>
 
-    <div class="new-items">
-      <div class="weight-bold-text">
+    <div class="new-post">
+      <div class="label-text">
         撮影地の住所
         <span class="indispensable">必須</span>
-      <%# <div class="gmap-link-btn"> %>
         <a class="gmap-link-btn" href='https://www.google.co.jp/maps/@35.6811429216083,139.76699220422807' target="_blank" rel="noopener noreferrer">
           ▶︎ Googleマップで検索
         </a>
-      <%# </div> %>
-        <%#= link_to 'Googleマップで検索', 'https://www.google.co.jp/maps/@35.6811429216083,139.76699220422807' target="_blank" rel="noopener noreferrer" %>
       </div>  
-      <%= f.text_area :shooting_location, class:"items-text", id:"item-name", placeholder:"例）山梨県富士吉田市浅間２−３３５３", maxlength:"40" %>
-    </div>
+      <%= f.text_area :shooting_location, class:"shooting_location-form", id:"shooting_location", placeholder:"例）山梨県富士吉田市浅間２−３３５３",rows:"2", maxlength:"40" %>
 
-    <div class="items-detail">
-      <div class="weight-bold-text question-text">
-        <%# <span>配送について</span> %>
-        <%# <a class="question" href="#">?</a>   %>
-      </div>
-      <div class="form">
-        <div class="weight-bold-text">
-          <%# 配送料の負担 %>
-          <%# <span class="indispensable">必須</span> %>
-        </div>
-        <%#= f.collection_select(:delivery_charge_id, DeliveryCharge.all, :id, :name, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
-        <div class="weight-bold-text">
-          <%# 発送元の地域 %>
-          <%# <span class="indispensable">必須</span> %>
-        </div>
-        <%#= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"item-prefecture"}) %>
-        <div class="weight-bold-text">
-          <%# 発送までの日数 %>
-          <%# <span class="indispensable">必須</span> %>
-        </div>
-        <%#= f.collection_select(:days_ship_id, DaysShip.all, :id, :name, {}, {class:"select-box", id:"item-scheduled-delivery"}) %>
-      </div>
-    </div>
-
-    <div class="weight-bold-text">
-    <%# 撮影地の地図 %>
-     <%# <span class="indispensable">必須</span> %>
-      <%# ＜Googleマップ＞ %>
+      <div class="label-text">
+        補足情報
+      </div>  
+      <%= f.text_area :other_information, class:"other-information-form", id:"other_information", placeholder:"例）桜のシーズン(4月上旬〜中旬)に行く方へ
+       ・駐車場は有料(1000円)です。園内の駐車場以外に、周辺の臨時駐車場が設置されます。
+       ・臨時駐車場からはシャトルバスが運行します。
+       ・6:00〜8:00に展望デッキを利用する場合は、事前予約チケット(抽選)の購入が必要です。
+      " ,rows:"7" ,maxlength:"1000"%>
 
     </div>
-
-    <%# <div class="sell-price"> %>
-      <%# <div class="weight-bold-text question-text"> %>
-        <%# <span>販売価格<br>(¥300〜9,999,999)</span> %>
-        <%# <a class="question" href="#">?</a> %>
-      <%# </div> %>
-      <%# <div> %>
-        <%# <div class="price-content"> %>
-          <%# <div class="price-text"> %>
-            <%# <span>価格</span> %>
-            <%# <span class="indispensable">必須</span> %>
-          <%# </div> %>
-          <%# <span class="sell-yen">¥</span> %>
-          <%#= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）300" %>
-        <%# </div>
-        <div class="price-content"> %>
-          <%# <span>販売手数料 (10%)</span> %>
-          <%# <span> %>
-            <%# <span id='add-tax-price'></span>円 %>
-          <%# </span> %>
-        <%# </div> %>
-        <%# <div class="price-content"> %>
-          <%# <span>販売利益</span> %>
-          <%# <span> %>
-            <%# <span id='profit'></span>円 %>
-        <%# </div>
-        </span> %>
-      <%# </div> %>
-    <%# </div> %>
-
-    <%# <div class="caution"> %>
-      <%# <p class="sentence"> %>
-        <%# <a href="#">禁止されている出品、</a>
-        <a href="#">行為</a>
-        を必ずご確認ください。 %>
-      <%# </p> %>
-      <%# <p class="sentence"> %>
-        <%# またブランド品でシリアルナンバー等がある場合はご記載ください。
-        <a href="#">偽ブランドの販売</a>
-        は犯罪であり処罰される可能性があります。 %>
-      <%# </p> %>
-      <%# <p class="sentence"> %>
-          <%# また、出品をもちまして
-          <a href="#">加盟店規約</a>
-          に同意したことになります。 %>
-      <%# </p> %>
-    <%# </div> %>
-
-    <div class="sell-btn-contents">
-      <%= f.submit "投稿する", class:"sell-btn" %>
+    <div class="btn-contents">
+      <%= f.submit "投稿する", class:"post-btn" %>
       <%= link_to 'もどる', root_path, class:"back-btn" %>
     </div>
   </div>
     <% end %>
-  
-  <%# <footer class="items-sell-footer">
-    <ul class="menu"> %>
-      <%# <li><a href="#">プライバシーポリシー</a></li>
-      <li><a href="#">フリマ利用規約</a></li>
-      <li><a href="#">特定商取引に関する表記</a></li> %>
-    <%# </ul> %>
-    <%#= link_to image_tag('impression spot-logo-color.png' , size: '300x50'), "/" %>
-    <%# <p class="inc"> %>
-      <%# ©︎Furima,Inc. %>
-    <%# </p> %>
-  <%# </footer> %>
 </div>
