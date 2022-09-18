@@ -177,21 +177,27 @@
 
       <% @posts.each do |m| %>
           (function(){
-          var contentString = "撮影地：<%= m.title %>"; 
+          var contentString = "タイトル：<%= m.title %>"; // 吹き出しの中身を定義
 
           var marker = new google.maps.Marker({
               position:{lat: <%= m.latitude %>, lng: <%= m.longitude %>},
               map: map,
-              title: contentString
+              title: contentString // 上で定義した吹き出しの中身を呼び出す
           });
-          
+          // var contentString = '撮影地：<%= m.shooting_location %>';
+          var infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
+            content: contentString // 吹き出しに表示する内容
+          });
+          marker.addListener('click', function() { // マーカーをクリックしたとき
+              infoWindow.open(map, marker); // 吹き出しの表示
+          });
           })();
       <% end %>
       //複数マーカー ここまで  
   }
 </script>
 
-  
+
       <script async defer
         src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
       </script>
