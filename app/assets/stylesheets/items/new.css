@@ -41,7 +41,7 @@
 }
 
 .weight-bold-text {
-  font-weight: bold;
+  /* font-weight: bold; */
   min-width: 170px;
   margin-bottom: 10px;
 }
@@ -94,7 +94,36 @@
 /* 商品名と商品説明 */
 .new-items {
   padding: 2vh 0;
+  /* background-color: blue; */
 }
+
+.gmap-link-btn{
+  border-radius: 20px;
+  /* border: 1px solid gray; */
+  /* display: flex; */
+  display: inline;
+  /* justify-content: center; */
+  /* width: 100px; */
+  /* height: 100%; */
+  /* font-size: 14px; */
+  margin-left: 30px;
+  background-color: skyblue;
+  padding: 5px;
+  color: white;
+}
+
+/* a {
+  color: white;
+  text-decoration: none;
+} */
+
+.gmap-link-btn:hover {
+  /* color: black; */
+  /* font-size: 2em;文字サイズ2倍 */
+  /* font-weight: bold; */
+   background-color: silver;
+}
+
 
 .items-text {
   width: 100%;
@@ -104,6 +133,7 @@
   font-size: 16px;
   resize: none;
 }
+
 
 .items-explain {
   margin-top: 2vh;
