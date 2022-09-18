@@ -137,7 +137,66 @@
   <%# </div> %>
   <%# /FURIMAの特徴 %>
   <%# 商品一覧 %>
+
+
   <div class='item-contents'>
+
+  <div class='posts-map'>
+      <%# Google map %>
+  <div id='map'></div>
+
+   <style>
+#map {
+  height: 600px;
+  width: 100%;
+}
+</style>
+<script>
+    function initMap() {
+
+      //初期表示位置：東京駅
+      let latlng = new google.maps.LatLng(35.68114292160832, 139.76699220422807);
+      //デザイン
+      let styles = [
+           {
+            stylers: [
+             { "saturation": 0 },
+             { "lightness": 0 }
+            ]
+           }
+          ];
+
+      let map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 8,　　//倍率を決める
+          styles: styles,
+          center: latlng
+      });
+      let transitLayer = new google.maps.TransitLayer();
+      transitLayer.setMap(map);
+
+
+      <% @posts.each do |m| %>
+          (function(){
+          var contentString = "撮影地：<%= m.title %>"; 
+
+          var marker = new google.maps.Marker({
+              position:{lat: <%= m.latitude %>, lng: <%= m.longitude %>},
+              map: map,
+              title: contentString
+          });
+          
+          })();
+      <% end %>
+      //複数マーカー ここまで  
+  }
+</script>
+
+  
+      <script async defer
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
+      </script>
+    </div>
+
     <h2 class='title'>Photograph</h2>
     <div class="subtitle" >
       <%# 新規投稿商品 %>
