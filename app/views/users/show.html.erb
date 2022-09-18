@@ -1,0 +1,32 @@
+<%= render "shared/header" %>
+<%# <div class='main'> %>
+<div class="main">
+
+  <%#= "#{@user.user_name}さんの投稿一覧" %>
+ <div class='item-contents'>
+    <h2 class='title'>
+    <%= "#{@user.user_name}さんのPhotograph" %> 
+    
+    </h2>
+    <ul class='item-lists'>
+      <% @posts.each do |post| %>
+        <li class='list'>
+         <%= link_to post_path(post.id) do %>
+         <div class='post-img-content'>
+          <%= image_tag post.image, class: "post-img" %>
+          <% end %>
+       
+      </div>
+        <div class='item-info'>
+          <h3 class='item-name'>
+            <%= post.title %>
+          </h3>
+          <%# <div class='item-price'>   %>
+            <%# <span> %>
+            <%#= link_to post.user.user_name, user_path(post.user) %>
+            <%# <br>   %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<%#= render "shared/footer" %>

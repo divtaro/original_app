@@ -47,7 +47,7 @@ a {
 .location {
   font-size: 1.5vh;
   line-height: 50px;
-  margin-left: 27vw;
+  margin-left: 25vw;
   // background-color: blue;
 }
 
@@ -235,6 +235,16 @@ a {
 
 /* //FURIMAの特徴 */
 
+
+/* 全ての投稿内容の地図表示 */
+.posts-map{
+  width: 100%;
+  height: 600px;
+  background-color: red;
+}
+
+
+
 /* 商品一覧 */
 
 .item-contents {
@@ -246,7 +256,7 @@ a {
 }
 
 .item-contents>.title {
-  font-size: 5vh;
+  font-size: 4vh;
   line-height: 1.4;
   font-weight: bold;
 }
@@ -267,18 +277,18 @@ a {
 }
 
 .item-lists>.list {
-  width: 37vh;
+  width: 46vh;
   padding: 1vw;
   background-color: #FFF;
 }
 
 
-.item-img-content {
+.post-img-content {
   position: relative;
 }
 
-.item-img {
-  width: 33vh;
+.post-img {
+  width:  45vh;
   height: 33vh;
 }
 
@@ -309,7 +319,7 @@ a {
 }
 
 .item-price {
-  font-size: 1.5vh;
+  font-size: 2.0vh;
   display: flex;
   justify-content: space-between;
 }
