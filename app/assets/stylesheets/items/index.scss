@@ -275,6 +275,17 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  
+}
+
+.list{
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+
+.list:hover {
+  opacity: 0.6;
+  transition-duration: 0.3s;
 }
 
 .item-lists>.list {
