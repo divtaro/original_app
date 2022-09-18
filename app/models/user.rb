@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :user_name, presence: true
+
+  # アソシエーション
+  has_many :posts
+  has_many :comments
 end

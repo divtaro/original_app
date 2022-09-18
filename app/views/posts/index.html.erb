@@ -19,9 +19,7 @@
   
     <div class='backgound-explanation'>
       <div class='explanation'>
-        雄大な「富士山」「五重塔」「桜」を一目に見ることができ"NIPPON"を体感できると海外からも大絶賛のSPOTです。
-      </div>
-      <div class='explanation'>
+        雄大な「富士山」「五重塔」「桜」を一目に見ることができ"NIPPON"を体感できると海外からも大絶賛のSPOTです。<br>
         新倉山の中腹にあり、398弾の階段を登るプチ登山の後に見る景色は、一見の価値があります。
       </div>
       <div class='location'>
@@ -139,18 +137,83 @@
   <%# </div> %>
   <%# /FURIMAの特徴 %>
   <%# 商品一覧 %>
+
+
   <div class='item-contents'>
+
+  <div class='posts-map'>
+      <%# Google map %>
+  <div id='map'></div>
+
+   <style>
+#map {
+  height: 600px;
+  width: 100%;
+}
+</style>
+<script>
+    function initMap() {
+
+      //初期表示位置：東京駅
+      let latlng = new google.maps.LatLng(35.68114292160832, 139.76699220422807);
+      //デザイン
+      let styles = [
+           {
+            stylers: [
+             { "saturation": 0 },
+             { "lightness": 0 }
+            ]
+           }
+          ];
+
+      let map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 8,　　//倍率を決める
+          styles: styles,
+          center: latlng
+      });
+      let transitLayer = new google.maps.TransitLayer();
+      transitLayer.setMap(map);
+
+
+      <% @posts.each do |post| %>
+          (function(){
+          var contentString = "タイトル：<%= post.title %>"; // マーカーにポインターを重ねた時に表示する小さい吹き出しの中身を定義
+
+          var marker = new google.maps.Marker({
+              position:{lat: <%= post.latitude %>, lng: <%= post.longitude %>},
+              map: map,
+              title: contentString // 上で定義した吹き出しの中身を呼び出す（title →小さなグレーの吹き出し）
+          });
+          var contentString = 'タイトル：<%= post.title %><br>撮影地：<%= post.shooting_location %><br>撮影時期:<%= post.shooting_month.name %><%= post.shooting_week.name %><br><%= link_to '詳細ページ', post_path(post.id) %>';// マーカーにポインターをクリックした時に表示する吹き出しの中身を定義
+          var infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
+            content: contentString // 上で定義した吹き出しの中身を呼び出す（content →大きい白色の吹き出し）
+          });
+          marker.addListener('click', function() { // マーカーをクリックしたとき
+              infoWindow.open(map, marker); // 吹き出しを表示
+          });
+          })();
+      <% end %>
+      //複数マーカー ここまで  
+  }
+</script>
+
+
+      <script async defer
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
+      </script>
+    </div>
+
     <h2 class='title'>Photograph</h2>
     <div class="subtitle" >
       <%# 新規投稿商品 %>
     </div>
     <ul class='item-lists'>
-      <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
+      <% @posts.each do |post| %>
       <li class='list'>
-        <%= link_to "#" do %>
-        <div class='item-img-content'>
-          <%= image_tag "item-sample.png", class: "item-img" %>
-
+        <%= link_to post_path(post.id) do %>
+        <div class='post-img-content'>
+          <%= image_tag post.image, class: "post-img" %>
+        <% end %>
           <%# 商品が売れていればsold outを表示しましょう %>
           <%# <div class='sold-out'>
             <span>Sold Out!!</span>
@@ -160,43 +223,44 @@
         </div>
         <div class='item-info'>
           <h3 class='item-name'>
-            <%= "商品名" %>
+            <%= post.title %>
           </h3>
-          <div class='item-price'>
-            <span><%= "販売価格" %>円<br><%= '配送料負担' %></span>
-            <div class='star-btn'>
-              <%= image_tag "star.png", class:"star-icon" %>
-              <span class='star-count'>0</span>
-            </div>
+          <div class='item-price'>  
+            <span><%= link_to post.user.user_name, user_path(post.user) %><br>
+            <%#= '配送料負担' %></span>
+            <%# <div class='star-btn'> %>
+              <%#= image_tag "star.png", class:"star-icon" %>
+              <%# <span class='star-count'>0</span>
+            </div> %>
           </div>
         </div>
-        <% end %>
+      <% end %>
       </li>
       <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
 
       <%# 商品がない場合は以下のダミー商品が表示されるようにしましょう %>
       <%# 商品がある場合は表示されないようにしましょう %>
-      <li class='list'>
-        <%= link_to '#' do %>
-        <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
-        <div class='item-info'>
-          <h3 class='item-name'>
-            商品を出品してね！
-          </h3>
-          <div class='item-price'>
+      <%# <li class='list'> %>
+        <%#= link_to '#' do %>
+        <%#= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
+        <%# <div class='item-info'> %>
+          <%# <h3 class='item-name'> %>
+            <%# 商品を出品してね！ %>
+          <%# </h3> %>
+          <%# <div class='item-price'>
             <span>99999999円<br>(税込み)</span>
-            <div class='star-btn'>
-              <%= image_tag "star.png", class:"star-icon" %>
-              <span class='star-count'>0</span>
+            <div class='star-btn'> %>
+              <%#= image_tag "star.png", class:"star-icon" %>
+              <%# <span class='star-count'>0</span>
             </div>
           </div>
-        </div>
-        <% end %>
-      </li>
+        </div> %>
+        <%# end %>
+      <%# </li> %>
       <%# //商品がある場合は表示されないようにしましょう %>
       <%# //商品がない場合は以下のダミー商品が表示されるようにしましょう %>
-    </ul>
-  </div>
+    <%# </ul>
+  </div> %>
   <%# /商品一覧 %>
 </div>
 <%= link_to(new_post_path, class: 'purchase-btn') do %>
