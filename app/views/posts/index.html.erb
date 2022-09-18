@@ -175,21 +175,21 @@
       transitLayer.setMap(map);
 
 
-      <% @posts.each do |m| %>
+      <% @posts.each do |post| %>
           (function(){
-          var contentString = "タイトル：<%= m.title %>"; // 吹き出しの中身を定義
+          var contentString = "タイトル：<%= post.title %>"; // マーカーにポインターを重ねた時に表示する小さい吹き出しの中身を定義
 
           var marker = new google.maps.Marker({
-              position:{lat: <%= m.latitude %>, lng: <%= m.longitude %>},
+              position:{lat: <%= post.latitude %>, lng: <%= post.longitude %>},
               map: map,
-              title: contentString // 上で定義した吹き出しの中身を呼び出す
+              title: contentString // 上で定義した吹き出しの中身を呼び出す（title →小さなグレーの吹き出し）
           });
-          // var contentString = '撮影地：<%= m.shooting_location %>';
+          var contentString = 'タイトル：<%= post.title %><br>撮影地：<%= post.shooting_location %><br>撮影時期:<%= post.shooting_month.name %><%= post.shooting_week.name %><br><%= link_to '詳細ページ', post_path(post.id) %>';// マーカーにポインターをクリックした時に表示する吹き出しの中身を定義
           var infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
-            content: contentString // 吹き出しに表示する内容
+            content: contentString // 上で定義した吹き出しの中身を呼び出す（content →大きい白色の吹き出し）
           });
           marker.addListener('click', function() { // マーカーをクリックしたとき
-              infoWindow.open(map, marker); // 吹き出しの表示
+              infoWindow.open(map, marker); // 吹き出しを表示
           });
           })();
       <% end %>
