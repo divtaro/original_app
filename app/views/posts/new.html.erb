@@ -102,6 +102,12 @@
       <div class="weight-bold-text">
         撮影地の住所
         <span class="indispensable">必須</span>
+      <%# <div class="gmap-link-btn"> %>
+        <a class="gmap-link-btn" href='https://www.google.co.jp/maps/@35.6811429216083,139.76699220422807' target="_blank" rel="noopener noreferrer">
+          ▶︎ Googleマップで検索
+        </a>
+      <%# </div> %>
+        <%#= link_to 'Googleマップで検索', 'https://www.google.co.jp/maps/@35.6811429216083,139.76699220422807' target="_blank" rel="noopener noreferrer" %>
       </div>  
       <%= f.text_area :shooting_location, class:"items-text", id:"item-name", placeholder:"例）山梨県富士吉田市浅間２−３３５３", maxlength:"40" %>
     </div>
