@@ -11,6 +11,11 @@
   padding: 15px;
 }
 
+.purchase-btn:hover {
+  background-color: silver;
+}
+
+
 .purchase-btn-text {
   color: #fff;
   display: block;

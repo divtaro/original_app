@@ -1,5 +1,8 @@
 class Post < ApplicationRecord
-
+  # 撮影地の登録時に、geocoderが緯度、経度を自動で登録する設定
+  geocoded_by :shooting_location
+  after_validation :geocode, if: :shooting_location_changed?
+  
   # **バリデーション
   validates :title,               presence: true, length: { maximum: 40 }
   validates :shooting_month_id,   presence: true

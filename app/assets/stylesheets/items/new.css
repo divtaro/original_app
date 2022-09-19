@@ -1,49 +1,51 @@
-/* border-bottom: 1px solid #eee; */
 
-
-.items-sell-contents {
-  background-color: #f5f5f5;
+.post-contents {
+  background-color: gray;
   font-family: "Source Sans Pro", Helvetica, Arial, "æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“", "YuGothic", "ãƒ¡ã‚¤ãƒªã‚ª", "Meiryo", sans-serif;
   font-size: 14px;
   display: flex;
   align-items: center;
   flex-direction: column;
   min-width: 500px;
+  padding-bottom: 100px;
 }
 
-.items-sell-header {
+.post-header {
   padding: 5vh 0;
   text-align: center;
 }
 
-.items-sell-main {
-  background-color: #FFF;
-  width: 70vw;
+.post-main {
+  background-color: #FFF; 
+  width: 52vw;
   min-width: 450px;
-  padding: 10vh 15vw;
+  padding: 10vh 8vw;
+  margin-top: 10px;
+  border-radius: 100px;
 }
 
-.items-sell-title {
+.new-post-title {
   font-size: 22px;
   font-weight: bold;
   text-align: center;
+  margin-bottom: 50px;
 }
 
 /* 共通 */
 .indispensable {
-  background: #ea352d;
+  /* background: #ea352d; */
   margin-left: 8px;
-  padding: 3px;
+  padding: 5px;
+  /* border: 1px solid gray; */
   border-radius: 2px;
-  color: #fff;
-  font-size: 12px;
+  color: red;
+  font-size: 15px;
   font-weight: bold;
 }
 
-.weight-bold-text {
-  font-weight: bold;
-  min-width: 170px;
-  margin-bottom: 10px;
+.label-text{
+  font-size: 15px;
+  margin: 10px 0px 5px 0px;
 }
 
 .select-box {
@@ -53,31 +55,13 @@
   padding-left: 20px;
 }
 
-.question {
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
-  background: #0099e8;
-  color: #FFF;
-  font-size: 13px;
-  text-align: center;
-  line-height: 20px;
-  text-decoration: none;
-  margin-left: 5px;
-}
-
-.question-text {
-  display: flex;
-}
 
 /* /共通 */
 
-/* 商品画像 */
 .img-upload {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 2vh 0;
 }
 
 .click-upload {
@@ -89,141 +73,131 @@
   margin-bottom: 15px;
 }
 
-/* /商品画像 */
-
-/* 商品名と商品説明 */
-.new-items {
-  padding: 2vh 0;
-}
-
-.items-text {
+.title-form{
   width: 100%;
-  padding: 16px 16px 8px;
+  /* height: 50px; */
+  padding: 10px 10px 0px;
   border-radius: 4px;
   border: 1px solid #ccc;
-  font-size: 16px;
-  resize: none;
+  /* font-size: 13px; */
+  resize: none; 
 }
 
-.items-explain {
+.impression-spot-form{
+  width: 100%;
+  /* height: 50px; */
+  padding: 10px 10px 0px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  /* font-size: 13px; */
+  resize: none; 
+}
+
+.new-post {
+  /* padding: 0vh 0; */
+  /* background-color: blue; */
+}
+
+.gmap-link-btn{
+  border-radius: 20px;
+  /* border: 1px solid gray; */
+  /* display: flex; */
+  display: inline;
+  /* justify-content: center; */
+  /* width: 100px; */
+  /* height: 100%; */
+  /* font-size: 14px; */
+  margin-left: 30px;
+  background-color: skyblue;
+  padding: 5px;
+  color: white;
+}
+
+/* a {
+  color: white;
+  text-decoration: none;
+} */
+
+.gmap-link-btn:hover {
+  /* color: black; */
+  /* font-size: 2em;文字サイズ2倍 */
+  /* font-weight: bold; */
+   background-color: silver;
+}
+
+.post-explain {
   margin-top: 2vh;
 }
 
 /* /商品名と商品説明 */
 
 /* 商品の詳細など */
-.items-detail {
+.post-detail {
   display: flex;
   justify-content: space-between;
-  padding: 2vh 0;
+  /* padding: 2vh 0;   */
 }
 
-.items-detail>.form {
-  width: 300px;
+.post-detail>.form {
+  width: 250px;
   padding: 2vh 0;
 }
 
 .select-box {
-  margin: 2vh 0;
+  /* margin: 2vh 0; */
 }
 
-/* /商品の詳細など */
-
-/* 販売価格 */
-.sell-price {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+.nearest_station-form{
+  width: 100%;
+  /* height: 50px; */
+  padding: 10px 10px 0px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  /* font-size: 13px; */
+  resize: none; 
 }
 
-.price-content {
-  width: 300px;
-  border-bottom: 1px solid #ccc;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.shooting_location-form{
+  width: 100%;
+  /* height: 50px; */
+  padding: 10px 10px 0px;
+  margin-top: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  /* font-size: 13px; */
+  resize: none; 
 }
 
-.price-text {
-  /* min-width: 170px; */
-  display: flex;
-  align-items: center;
+.other-information-form{
+  width: 100%;
+  /* height: 50px; */
+  padding: 10px 10px 0px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  /* font-size: 13px; */
+  resize: none; 
 }
-
-.sell-yen {
-  font-size: 18px;
-}
-
-.price-input {
-  height: 30px;
-  text-align: right;
-  padding-right: 10px;
-}
-
-/* /販売価格 */
-
-/* 注意書き */
-.caution {
-  padding: 5vh 0;
-}
-
-.sentence>a {
-  color: #0099e8;
-  text-decoration: none;
-}
-
-/* /注意書き */
 
 /* 下部ボタン */
-.sell-btn-contents {
+.btn-contents {
   width: 100%;
   text-align: center;
 }
 
-.sell-btn {
-  background: #ea352d;
-  border: 1px solid #ea352d;
+.post-btn {
+  background: orange;
+  border: 1px solid orange;
   color: #fff;
   width: 100%;
   height: 50px;
-  font-size: 14px;
-  margin-bottom: 4vh;
+  font-size: 16px;
+  margin: 7vh 0 7vh 0;
 }
 
 .back-btn {
   background: #aaa;
   border: 1px solid #aaa;
   color: #fff;
-  padding: 15px 35%;
+  padding: 15px 35%;  
   text-decoration: none;
-}
-
-/* /下部ボタン */
-
-.items-sell-footer {
-  background-color: #f5f5f5;
-  width: 60vw;
-  padding: 3ch 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-
-.items-sell-footer>.menu {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 3vh 0;
-}
-
-.menu>li>a {
-  color: black;
-  font-size: 12px;
-  margin: 2vw;
-}
-
-.inc {
-  font-size: 13px;
 }

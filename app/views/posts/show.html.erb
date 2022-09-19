@@ -9,19 +9,62 @@
         </div>
         <%= image_tag @post.image, class: 'image_size' %>
       </div>
-      <div class="shooting-location-map">
-      Googleマップ
+        <div class="shooting-location-map">
+
+        <script type="text/javascript">
+          function initMap() {
+            // latitude,longitudeから位置を特定
+            var test ={lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
+            var map = new google.maps.Map(document.getElementById('map'), {
+                      zoom: 15, 
+                      center: test    
+                      });
+            var transitLayer = new google.maps.TransitLayer();
+            transitLayer.setMap(map);
+
+            var contentString = '撮影地：<%= @post.shooting_location %>';
+            var infowindow = new google.maps.InfoWindow({
+              content: contentString
+            });
+
+            //  Map上の指定した位置にピンを挿して表示する
+            var marker = new google.maps.Marker({
+                          position:test,
+                          map: map,
+                          title: contentString
+                        });
+
+            marker.addListener('click', function() {
+              infowindow.open(map, marker);
+            });
+          }
+        </script> 
+
+        <%# 以下の記述の中にあるYOUR_API_KEYには取得したご自身のAPIキーを記述してください %>
+        <script async defer
+                      src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
+        </script>
+        <%# 表示するmapのcssです。ご自身でカスタマイズしてください。高さが設定されていないと表示されないことがあります。 %>
+        <style type="text/css">
+          #map { height: 100%;
+                 width: 100%;}
+        </style>
+
+       <%# mapの表示 %>
+        <div id="map"></div>
+
       </div>
     </div>
 
     <div class='go-icon-area'>
-      <div class='want-go-area'>
-        <div class='want-go-text'>
+      <div class='wanna-go-area'>
+        <div class='wanna-go-text'>
           <div>行きたい！</div>
         </div>
-        <div class='want-go-icon'>
+        <div class='wanna-go-icon-area'>
+          <%= link_to image_tag("wanna_go_icon.png", class:"wanna-go-icon"), "#" %>
         </div>
-         <div class='want-go-count'>
+         <div class='wanna-go-count'>
         </div>
       </div>
 
@@ -29,7 +72,8 @@
         <div class='went-text'>
           <div>行った！</div>
         </div>
-        <div class='went-icon'>
+        <div class='went-icon-area'>
+          <%= link_to image_tag("went_icon.png", class:"went-icon"), "#" %>
         </div>
         <div class='went-count'>
         </div>
@@ -42,7 +86,7 @@
         <%# コメント入力欄 %>
         <div class='comment-form-area'>
           <% if user_signed_in? %>
-            <%= form_with(model: [@post, @comment], local: true) do |f| %>
+            <%= form_with model: [@post, @comment], id: "comment-form" do |f| %>  <%# id: "comment-form" はJSファイルで流用中 %>
               <%= f.text_area :text, style: "width:100%", placeholder: "コメントを追加" %>
               <%= f.submit "コメント",class: "comment-btn" %>
             <% end %>
@@ -61,13 +105,15 @@
         <%# </div> %>
       </div>
 
-      <div class='comment-display-area'>
-        <h4>＜コメント一覧＞</h4>
-          <% @post.comments.each do |comment| %>
+      <div class='comment-display-area' id="comments"> <%#  id="comments" はJSファイルで流用中 %>
+        <%# <h4>＜コメント一覧＞</h4> %>
+          <% @post.comments.reverse_each do |comment| %>
+            <%# 以下のコードは、JSファイルでも流用中 %>
             <div class='comment-row'>
               <div class='commenter'><%= comment.user.user_name %>： </div>
               <div class='comment-sentence'><%= comment.text %></div>
             </div>
+            <%# 以上のコードは、JSファイルでも流用中 %>
           <% end %>
       </div>
     </div>  
