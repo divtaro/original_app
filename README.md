@@ -12,6 +12,7 @@
 
 -has_many :posts
 -has_many :comments
+-has_many :likes
 
 ## posts テーブル
 
@@ -27,18 +28,33 @@
 | walking_time_id     | integer     |                                | 
 | shooting_location   | text        | null: false                    | 
 | other_information   | text        |                                | 
+| latitude            | float       | null: false                    |
+| longitude           | float       | null: false                    | 
 | user                | references  | null: false, foreign_key: true | 
 
 ### Association
 
 -belongs_to :user
 -has_many   :comments
+-has_many :likes
 
 ## commentsテーブル
 
 | Column             | Type        | Options                         |
 | ------------------ | ----------- | ------------------------------- |
 | text               | text        | null: false, foreign_key: true  | 
+| post               | references  | null: false, foreign_key: true  | 
+| user               | references  | null: false, foreign_key: true  | 
+
+### Association
+
+-belongs_to :post
+-belongs_to :user
+
+## likesテーブル
+
+| Column             | Type        | Options                         |
+| ------------------ | ----------- | ------------------------------- |
 | post               | references  | null: false, foreign_key: true  | 
 | user               | references  | null: false, foreign_key: true  | 
 
