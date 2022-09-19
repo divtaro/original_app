@@ -26,6 +26,8 @@
 | walking_time_id     | integer     |                                | 
 | shooting_location   | text        | null: false                    | 
 | other_information   | text        |                                | 
+| latitude            | float       | null: false                    |
+| longitude           | float       | null: false                    | 
 | user                | references  | null: false, foreign_key: true | 
 
 ### Association
