@@ -12,6 +12,7 @@
 
 -has_many :posts
 -has_many :comments
+-has_many :likes
 
 ## posts テーブル
 
@@ -34,12 +35,25 @@
 
 -belongs_to :user
 -has_many   :comments
+-has_many :likes
 
 ## commentsテーブル
 
 | Column             | Type        | Options                         |
 | ------------------ | ----------- | ------------------------------- |
 | text               | text        | null: false, foreign_key: true  | 
+| post               | references  | null: false, foreign_key: true  | 
+| user               | references  | null: false, foreign_key: true  | 
+
+### Association
+
+-belongs_to :post
+-belongs_to :user
+
+## likesテーブル
+
+| Column             | Type        | Options                         |
+| ------------------ | ----------- | ------------------------------- |
 | post               | references  | null: false, foreign_key: true  | 
 | user               | references  | null: false, foreign_key: true  | 
 
