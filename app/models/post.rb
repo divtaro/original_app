@@ -26,6 +26,7 @@ class Post < ApplicationRecord
   # ** テーブル間のアソシエーション
   belongs_to       :user
   has_many         :comments
+  has_many         :likes, dependent: :destroy
   has_one_attached :image
 
   # ActiveHashとのアソシエーション
