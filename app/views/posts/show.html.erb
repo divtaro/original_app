@@ -43,7 +43,7 @@
         <div class='comment-form-area'>
           <% if user_signed_in? %>
             <%= form_with(model: [@post, @comment], local: true) do |f| %>
-              <%= f.text_area :text, placeholder: "コメントを追加", rows: "1", size: "135" %>
+              <%= f.text_area :text, style: "width:100%", placeholder: "コメントを追加" %>
               <%= f.submit "コメント",class: "comment-btn" %>
             <% end %>
           <% else %>
