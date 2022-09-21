@@ -77,6 +77,10 @@
 
 
 /*************** 行きたい ***************/
+.like_btn{
+  color: black;
+}
+
 .wanna-go-area{
   width: 25%;
   height: 40px;

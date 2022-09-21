@@ -3,6 +3,15 @@ class Post < ApplicationRecord
   geocoded_by :shooting_location
   after_validation :geocode, if: :shooting_location_changed?
   
+  # def liked_by?(user)
+  #   likes.where(user_id: user.id).exists?
+  # end
+
+  def liked_by?(current_user)
+    likes.where(user_id: user.id).exists?
+  end
+  
+
   # **バリデーション
   validates :title,               presence: true, length: { maximum: 40 }
   validates :shooting_month_id,   presence: true
@@ -26,6 +35,7 @@ class Post < ApplicationRecord
   # ** テーブル間のアソシエーション
   belongs_to       :user
   has_many         :comments
+  has_many         :likes, dependent: :destroy
   has_one_attached :image
 
   # ActiveHashとのアソシエーション

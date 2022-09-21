@@ -1,0 +1,2 @@
+<!-- #like_area_<%= @post.id %>この部分のHTMLだけ、renderで部分的に更新するという処理 -->
+$("#like_btn_<%= @post.id %>").html("<%= j(render partial: 'likes/like_show', locals: { post: @post }) %>");
