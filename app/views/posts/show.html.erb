@@ -57,15 +57,20 @@
     </div>
 
     <div class='go-icon-area'>
+
       <div class='wanna-go-area'>
-        <div class='wanna-go-text'>
-          <div>行きたい！</div>
-        </div>
-        <div class='wanna-go-icon-area'>
-          <%= link_to image_tag("wanna_go_icon.png", class:"wanna-go-icon"), "#" %>
-        </div>
-         <div class='wanna-go-count'>
-        </div>
+        <%# <div class='wanna-go-text'> %>
+          <div id="like_btn_<%= @post.id %>">
+            <%= render 'likes/like_show', post: @post %>
+			    </div>
+
+        <%# </div> %>
+        <%# <div class='wanna-go-icon-area'> %>
+          <%#= link_to image_tag("wanna_go_icon.png", class:"wanna-go-icon"), "#" %>
+        <%# </div> %>
+         <%# <div class='wanna-go-count'>
+          
+        </div> %>
       </div>
 
       <div class='went-area'>
