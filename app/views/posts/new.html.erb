@@ -1,6 +1,6 @@
 <div class="post-contents">
   <header class="post-header">
-    <%= link_to image_tag('impression spot-logo-color.png' , size: '300x50'), "/" %>
+    <%# link_to image_tag('impression spot-logo-color.png' , size: '300x50'), "/" %>
 
   </header>
   <div class="post-main">
@@ -26,14 +26,14 @@
         タイトル
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :title, class:"title-form", id:"title-form", placeholder:"例）新倉山浅間公園（40文字まで)", maxlength:"40" %>
+      <%= f.text_area :title, class:"title-form", id:"title-form", placeholder:"例）新倉山浅間公園", maxlength:"40" %>
       
       <div class="post-explain">
         <div class="label-text">
           感動ポイント
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :impression_point, class:"impression-spot-form", id:"impression-spot-form", placeholder:"例）富士山、五重塔、桜を一目に見ることができます（1,000文字まで）" ,rows:"5" ,maxlength:"1000" %>
+        <%= f.text_area :impression_point, class:"impression-spot-form", id:"impression-spot-form", placeholder:"例）富士山、五重塔、桜を一目に見ることができます" ,rows:"5" ,maxlength:"1000" %>
       </div>
     </div>
 
@@ -91,7 +91,8 @@
         撮影地の住所
         <span class="indispensable">必須</span>
         <a class="gmap-link-btn" href='https://www.google.co.jp/maps/@35.6811429216083,139.76699220422807' target="_blank" rel="noopener noreferrer">
-          ▶︎ Googleマップで検索
+           <%= image_tag("icons8-google-maps-48.png", class:"gmap-icon")%>
+          Googleマップで検索
         </a>
       </div>  
       <%= f.text_area :shooting_location, class:"shooting_location-form", id:"shooting_location", placeholder:"例）山梨県富士吉田市浅間２−３３５３",rows:"2", maxlength:"40" %>
@@ -100,9 +101,9 @@
         補足情報
       </div>  
       <%= f.text_area :other_information, class:"other-information-form", id:"other_information", placeholder:"例）桜のシーズン(4月上旬〜中旬)に行く方へ
-       ・駐車場は有料(1000円)です。園内の駐車場以外に、周辺の臨時駐車場が設置されます。
-       ・臨時駐車場からはシャトルバスが運行します。
-       ・6:00〜8:00に展望デッキを利用する場合は、事前予約チケット(抽選)の購入が必要です。
+      ・駐車場は有料(1000円)です。園外の周辺には臨時駐車場が設置されます。
+      ・臨時駐車場からはシャトルバスが運行します。
+      ・6:00〜8:00に展望デッキを利用する際は、事前予約チケット(抽選)の購入が必要です。
       " ,rows:"7" ,maxlength:"1000"%>
 
     </div>
