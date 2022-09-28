@@ -36,7 +36,7 @@
     function initMap() {
 
       //初期表示位置：東京駅
-      let latlng = new google.maps.LatLng(35.68114292160832, 139.76699220422807);
+      let latlng = new google.maps.LatLng(35.68114292160832, 137.76699220422807);
       //デザイン
       let styles = [
            {
@@ -100,7 +100,7 @@
         <% end %>
           
         <div class='contributor'>  
-          <span><%= link_to post.user.user_name, user_path(post.user) %><br></span>
+          <%= link_to post.user.user_name, user_path(post.user), class: "contributor" %>
         </div>
         <div class='like'>  
           <%#= link_to post.user.user_name, user_path(post.user) 行きたいを載せる%> 
