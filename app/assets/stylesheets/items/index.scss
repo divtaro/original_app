@@ -66,7 +66,7 @@ a {
 .item-contents>.title {
   font-size: 4vh;
   line-height: 1.4;
-  // font-weight: bold;
+  font-weight: bold;
   margin: 70px 50px 50px 50px;
 }
 
@@ -101,8 +101,8 @@ a {
 .item-lists>.list {
   width: 46vh;
   // padding: 1vw;
-  margin: 0.5vh 0 0.5vh 0;
-  background-color: #FFF;
+  margin: 1vh 0.2vw 0.5vh 0.2vw;
+  // background-color: red;
 }
 
 .post-img-content {
@@ -147,6 +147,7 @@ a {
   display: flex;
   justify-content: space-between;
   margin-top: 1vh;
+  color: black ; 
   // background-color: lightgreen;
 }
 
