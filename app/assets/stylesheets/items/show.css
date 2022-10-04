@@ -1,7 +1,7 @@
 /* 商品の概要 */
 
 .post-show-page-main {
- background-color: red;
+ /* background-color: red; */
  /* width: 100vw;   */
  /* height: 100vh; */
  padding: 100px 200px;  
@@ -11,7 +11,7 @@
 }
 
 .post-box {
-  background-color: lightpink;
+  /* background-color: lightpink; */
   /* width: 80vw; */
   /* height: 80vh; */
   /* display: flex; */
@@ -23,7 +23,7 @@
   width:  100%;
   height: 500px;
   display: flex;
-  background-color: orange;
+  /* background-color: orange; */
   padding: 10px;
   margin-bottom: 10px;
 
@@ -38,7 +38,7 @@
   width:  50%;
   height: 100%;
   position: relative;
-  background-color: lightblue;
+  /* background-color: lightblue; */
 }
 
 .post-title{
@@ -86,7 +86,7 @@
   height: 40px;
   margin-right: 5px;
   display: flex;
-  background-color: lightskyblue;
+  /* background-color: lightskyblue; */
 }  
 
 .wanna-go-text{
@@ -163,14 +163,14 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: lightyellow;
+  /* background-color: lightyellow; */
 }
 
 .comment-area-sub{
   width: 80%;
   height: 120px;
   margin-top: 10px;
-  background-color: purple;
+  /* background-color: purple; */
   display: flex;
   /* justify-content: flex-end; */
   /* align-items: flex-end; */
@@ -181,7 +181,7 @@
   width: 100%;
   height: 100px ;
   margin-top: 9px; 
-  background-color: orchid;
+  /* background-color: orchid; */
 }
 
 /* .comment-text{ */
@@ -196,7 +196,7 @@
   display: flex;
   justify-content: space-between;
   margin-left: 100px;
-  background-color: gray;
+  /* background-color: gray; */
 }
 
 .comment-btn{
@@ -205,8 +205,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 0px;
   /* margin-top: 1px; */
-  background-color: lightcoral;
+
+  background-color: orange;
 } 
 
 
@@ -238,7 +240,7 @@
   width: 80%;
   height: 300px;
   margin: 20px 0;
-  background-color: gray;
+  /* background-color: gray; */
   overflow: scroll;
 }
 
@@ -246,7 +248,7 @@
   width:  100%;
   height: 70px;
   margin: 10px 0;
-  background-color: lightgray;
+  /* background-color: lightgray; */
 }
 
 .commenter{
@@ -254,14 +256,15 @@
   height: 35px;
   /* margin: 10px 0; */
   color: gray;
-  background-color: lightgreen;
+  /* background-color: lightgreen; */
 }
 
 .comment-sentence{
   width:  100%;
   height: 35px;
   /* margin: 10px 0; */
-  background-color: lightsalmon;
+  margin-left: 1vw;
+  /* background-color: lightgray; */
 }
 
 
@@ -276,7 +279,7 @@
   align-items: center;
   flex-direction: column;
   margin-top: 10px;
-  background-color: black; 
+  /* background-color: black;  */
 }
 
 
@@ -287,7 +290,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background-color: lightskyblue;
+  /* background-color: lightskyblue; */
 }
 
 /*************** タイトルのテンプレ(文章が1行の場合) ***************/
@@ -295,7 +298,7 @@
   width: 30%;   
   height: 30px;
   /* margin-top: 10px; */
-  background-color: lightpink;
+  /* background-color: lightpink; */
 }
 
 /**************** タイトルのテンプレ(文章が2行の場合) ****************/
@@ -303,21 +306,21 @@
   width: 30%;   
   height: 60px;
   /* margin-bottom: 10px; */
-  background-color: lightpink;
+  /* background-color: lightpink; */
 }
 
 /**************** タイトルのテンプレ(文章が3行の場合) ****************/
 .detail-title-03{
   width: 30%;   
   height: 90px;
-  background-color: lightpink;
+  /* background-color: lightpink; */
 }
 
 /**************** タイトルのテンプレ(補足情報の場合) ****************/
 .detail-title-other{
   width: 30%;   
   height: 150px;
-  background-color: lightpink;
+  /* background-color: lightpink; */
 }
 
 /**************** タイトル欄1行目のテンプレ ****************/
@@ -325,7 +328,7 @@
   width: 50%;   
   height: 30px;
   margin: 4px 0px 0px 100px;
-  background-color: yellow;  
+  /* background-color: yellow;   */
 }
 
 /**************** タイトル欄2行目のテンプレ ****************/
@@ -333,7 +336,7 @@
   width: 50%;   
   height: 30px;
   margin: 2px 0px 0px 100px;
-  background-color: lightgreen;  
+  /* background-color: lightgreen;   */
 }
 
 
@@ -342,7 +345,7 @@
   width: 70%;   
   height: 30px;
   /* margin-top: 10px; */
-  background-color: lightcoral;
+  /* background-color: lightcoral; */
 }
 
 /**************** 情報欄のテンプレ(文章が2行の場合) ****************/
@@ -350,7 +353,7 @@
   width: 70%;   
   height: 60px;
   /* margin-top: 10px; */
-  background-color: lightcoral;
+  /* background-color: lightcoral; */
 }
 
 /**************** 情報欄のテンプレ(文章が3行の場合) ****************/
@@ -358,7 +361,7 @@
   width: 70%;   
   height: 90px;
   /* margin-top: 10px; */
-  background-color: lightcoral;
+  /* background-color: lightcoral; */
 }
 
 /**************** 情報欄のテンプレ(補足情報の場合) ****************/
@@ -366,7 +369,7 @@
   width: 70%;   
   height: 150px;
   /* margin-top: 10px; */
-  background-color: lightcoral;
+  /* background-color: lightcoral; */
 }
 
 
@@ -376,7 +379,7 @@
   width: 50%;   
   height: 26px;
   margin: 2px 0px 0px 0px;
-  background-color: yellow;
+  /* background-color: yellow; */
 }
 
 /**************** 情報欄2行目のテンプレ ****************/
@@ -384,7 +387,7 @@
   width: 50%;   
   height: 26px;
   margin: 2px 0px 0px 0px;
-  background-color: green;
+  /* background-color: green; */
 }
 
 /**************** 情報欄3行目のテンプレ ****************/
@@ -392,7 +395,7 @@
   width: 50%;   
   height: 26px;
   margin: 2px 0px 0px 0px;
-  background-color: lightseagreen;
+  /* background-color: lightseagreen; */
   }
 
 
@@ -402,7 +405,8 @@
   margin-top: 10px;
   display: flex;
   align-items: center;
-  background-color: royalblue;
+  border-bottom: 1px solid gray;
+  /* background-color: royalblue; */
 }
 
 .shooting-season{
@@ -411,7 +415,8 @@
   margin-top: 10px;
   display: flex;
   align-items: center;
-  background-color: royalblue;
+  border-bottom: 1px solid gray;
+  /* background-color: royalblue; */
 }
 
 .shooting-location{
@@ -420,7 +425,8 @@
   margin-top: 10px;
   display: flex;
   align-items: center;
-  background-color: royalblue;
+  border-bottom: 1px solid gray;
+  /* background-color: royalblue; */
 }
 
 .parking{
@@ -429,7 +435,8 @@
   margin-top: 10px;
   display: flex;
   align-items: center;
-  background-color: royalblue;
+  border-bottom: 1px solid gray;
+  /* background-color: royalblue; */
 }
 
 .public-transport{
@@ -438,7 +445,8 @@
   margin-top: 10px;
   display: flex;
   align-items: center;
-  background-color: royalblue;
+  border-bottom: 1px solid gray;
+  /* background-color: royalblue; */
 }
 
 .other-information{
@@ -447,7 +455,8 @@
   margin-top: 10px;
   display: flex;
   align-items: center;
-  background-color: royalblue;
+  border-bottom: 1px solid gray;
+  /* background-color: royalblue; */
 }
 
 
@@ -461,7 +470,7 @@
   margin: 50px 0;
   display: flex;
   justify-content: space-between; 
-  background-color: greenyellow;
+  /* background-color: greenyellow; */
 }
 
 .edit-btn{
@@ -470,8 +479,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: lightseagreen;
+  /* border: 1px solid; */
+  text-decoration: none;
+  color: white ; 
+  background-color: orange;
 }
+
+
 
 .delete-btn{
   width: 35%;
@@ -479,11 +493,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: lightcoral;
+  /* border: 1px solid; */
+  text-decoration: none;
+  color: white; 
+  background: #aaa;
+  /* padding: 15px 35%;   */
 }
-
-
-
 
 
 
@@ -665,6 +680,11 @@
   border-radius: 100px;
   margin-bottom: 2vh;
 } */
+
+a.comment-btn :hover {
+  opacity: 0.6;
+  transition-duration: 0.3s;
+}
 
 .comment-flag {
   display: flex;
