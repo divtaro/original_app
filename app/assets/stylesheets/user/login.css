@@ -2,6 +2,11 @@
   width: 50%;
   margin: 0 auto;
   margin-top: 50px;
+  /* background-color: blue; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .login-red-btn {
