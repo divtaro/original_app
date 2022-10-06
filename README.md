@@ -50,11 +50,11 @@ https://docs.google.com/spreadsheets/d/1BH2x0dHObf5wwWf31e20yWtUOaOUpWAffHMTNZYU
 # 実装予定の機能
 写真の検索機能を実装中です。
 
-# データベース設計
-![picture 1](images/64c2e3c5c06f5919ba2f7c81416998eff24290f013d6e2b6c07068a291236ead.png)  
+# データベース設計（ER図）
+![image](https://user-images.githubusercontent.com/110531484/194309839-ffe7fea2-d531-4863-b1f3-98d5d8594fdc.png)
 
 # 画面遷移図
-![picture 5](images/8a8d69a66ad64c2b80d9ac96a6131cc9368b444ddac9372f65cb49be7d4f138f.png)  
+![image](https://user-images.githubusercontent.com/110531484/194309384-ec87405f-dbea-4386-b4f1-ed90d33e101a.png) 
 
 # 開発環境
 ・フロントエンド<br>
