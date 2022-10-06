@@ -1,64 +1,98 @@
-# テーブル設計
+# アプリケーション名
+impression spot
 
-## users テーブル
+# アプリケーション概要
+・自分が感動したスポットとその撮影場所を共有することができる。<br>
+・地域ごとの感動スポットが一目でわかるため、旅行の行き先選定に役立てることができる。
 
-| Column              | Type        | Options                        |
-| ------------------- | ----------- | ------------------------------ |
-| user_name           | string      | null: false, unique: true      |
-| email               | string      | null: false, unique: true      |
-| encrypted_password  | string      | null: false                    |
+# URL
+https://original-app-36711.herokuapp.com/
 
-### Association
+# テスト用アカウント
+・Basic認証ID：admin<br>
+・Basic認証パスワード：1111<br>
+・メールアドレス：aaaa@aaaa.com<br>
+・パスワード：111aaa
 
--has_many :posts
--has_many :comments
--has_many :likes
+# 利用方法
+## 感動スポット投稿
+1. トップページからのヘッダーからユーザー新規登録を行う<br>
+2. トップページ右下の投稿ボタンから、感動したスポットの内容（写真、タイトル、感動ポイント、<br>
+   撮影時期、周辺の駐車場、公共高つき間、撮影地の住所、補足情報）を投稿する<br>
+3. Googleマップで検索ボタンから、撮影地の住所を検索することができる
 
-## posts テーブル
+## 写真から感動スポットを探す
+1. トップページの投稿一覧から感動を探す
 
-| Column              | Type        | Options                        |
-| ------------------- | ----------- | ------------------------------ |
-| title               | string      | null: false, unique: true      | 
-| shooting_month_id   | integer     | null: false                    | 
-| shooting_week_id    | integer     | null: false                    | 
-| impression_point    | text        | null: false                    | 
-| parking_presence_id | integer     |                                | 
-| parking_fee_id      | integer     |                                | 
-| nearest_station     | string      |                                | 
-| walking_time_id     | integer     |                                | 
-| shooting_location   | text        | null: false                    | 
-| other_information   | text        |                                | 
-| latitude            | float       | null: false                    |
-| longitude           | float       | null: false                    | 
-| user                | references  | null: false, foreign_key: true | 
+## Googleマップから感動スポットを探す
+1. Googleマップに表示されたマーカーをクリックすると吹き出しが表示される<br>
+2. 吹き出しから撮影地の住所、撮影時期を確認することができる<br>
+3. 吹き出し上から投稿詳細ページに遷移することができる<br>
 
-### Association
+## 他人の感動に共感する
+1. 投稿した写真にいいねを付ける<br>
+2. いいねした写真は、マイページに一覧で表示される<br>
 
--belongs_to :user
--has_many   :comments
--has_many :likes
+# アプリケーションを作成した背景
+私自身が感じたことから生まれたサービスです。<br>
+社会人になってから一人旅をする機会が増えて、日本各地の美しい風景を撮影するようになりました。<br>
+ある日、某SNSで美しい写真を見つけて、同じ写真を撮りに行こうと思いました。<br>
+しかし、その写真のタグには撮影地も載っておらず、いつ、どこで撮影されたのかがわからないという<br>
+問題に直面しました。皆さんも同じような経験はないでしょうか？<br>
+そんな問題を解決するために、写真をクリックすればその撮影地がわかるサービスを生み出しました。<br>
+さあ、「感動の1枚」を、観に行こう。
 
-## commentsテーブル
+# 洗い出した要件
+https://docs.google.com/spreadsheets/d/1BH2x0dHObf5wwWf31e20yWtUOaOUpWAffHMTNZYUH_o/edit?usp=sharing
 
-| Column             | Type        | Options                         |
-| ------------------ | ----------- | ------------------------------- |
-| text               | text        | null: false, foreign_key: true  | 
-| post               | references  | null: false, foreign_key: true  | 
-| user               | references  | null: false, foreign_key: true  | 
+<!-- # 実装した機能についての画像やGIFおよびその説明 -->
 
-### Association
+# 実装予定の機能
+写真の検索機能を実装中です。
 
--belongs_to :post
--belongs_to :user
+# データベース設計
+![picture 1](images/64c2e3c5c06f5919ba2f7c81416998eff24290f013d6e2b6c07068a291236ead.png)  
 
-## likesテーブル
+# 画面遷移図
+![picture 5](images/8a8d69a66ad64c2b80d9ac96a6131cc9368b444ddac9372f65cb49be7d4f138f.png)  
 
-| Column             | Type        | Options                         |
-| ------------------ | ----------- | ------------------------------- |
-| post               | references  | null: false, foreign_key: true  | 
-| user               | references  | null: false, foreign_key: true  | 
+# 開発環境
+・フロントエンド<br>
+・バックエンド<br>
+・インフラ<br>
+・テスト<br>
+・テキストエディタ<br>
+・タスク管理<br>
 
-### Association
+# ローカルでの動作方法
+以下のコマンドを順に実行。<br>
+% git clone https://original-app-36711.herokuapp.com/<br>
+% cd xxxxxx<br>
+% bundle install<br>
+% yarn install<br>
 
--belongs_to :post
--belongs_to :user
+# 工夫したポイント
+### トップページ
+・各投稿の撮影地をマーカーで表示できるようにしました。<br>
+・各マーカーをクリックすれば、吹き出しが表示されるようにしました。<br>
+・吹き出しからタイトル、撮影地の住所、撮影時期を確認できるようにしました。<br>
+・吹き出しからでも投稿詳細ページに遷移できるようにしました。<br>
+
+### 新規投稿ページ
+・桜など季節写真のために、撮影時期の項目を入れました。<br>
+・撮影時期は、撮影月と撮影週に分けて、1つのプルダウンのボリュームを抑えることで、選択し易いようにしました。<br>
+・車で行きたい人のために、駐車場の有無、駐車代の項目を入れました。<br>
+・公共交通機関で行きたい人のために、最寄り駅名、最寄り駅からの徒歩時間の項目を入れました。<br>
+・Googleマップを開くボタンを設けることで、住所をスムーズに検索できるようにしました。<br>
+
+### 投稿詳細ページ
+・写真と撮影地（Googleマップ）を比較できるレイアウトにしました。<br>
+・撮影地の住所から精度の高い緯度経度に変換するため、ジオコーディングにはGoogleのgeocorderを使用しました。<br>
+・「行きたい」機能を実装し、投稿者に対して興味を伝えることができるようにしました。<br>
+・「行きたい」機能に非同期通信を採用し、「行きたい」を付けた状態/解除状態を即時反映できるようにしました。<br>
+・コメント機能に非同期通信を採用し、コメント内容を即時反映できるようにしました。<br>
+・コメント一覧表示部分がページ下まで延びないように、スクロールで表示できるようにしました。<br>
+
+### マイページ
+・「行きたい」を付けた写真を一覧で表示し、行きたいリストを作れるようにしました。<br>
+・マイページからでも「行きたい」を解除できるようにしました。<br>
