@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="iaVXJnA-ktygiHfRcyiL" name="ページ1">
-        <mxGraphModel dx="1290" dy="1236" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" background="#FFFFFF" math="0" shadow="0">
+        <mxGraphModel dx="972" dy="1236" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" background="#FFFFFF" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -175,13 +175,16 @@
                 </mxCell>
                 <mxCell id="56" value="" style="endArrow=classic;html=1;rounded=1;strokeColor=#000000;fontColor=#000000;labelBackgroundColor=#FFFFFF;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="461" y="189" as="sourcePoint"/>
-                        <mxPoint x="421" y="189" as="targetPoint"/>
+                        <mxPoint x="461" y="190" as="sourcePoint"/>
+                        <mxPoint x="421" y="190" as="targetPoint"/>
                         <Array as="points">
-                            <mxPoint x="461" y="160"/>
-                            <mxPoint x="421" y="160"/>
+                            <mxPoint x="461" y="161"/>
+                            <mxPoint x="421" y="161"/>
                         </Array>
                     </mxGeometry>
+                </mxCell>
+                <mxCell id="131" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="57" target="126">
+                    <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="57" value="ログイン失敗" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=none;fillColor=none;fontColor=#000000;labelBackgroundColor=#FFFFFF;" parent="1" vertex="1">
                     <mxGeometry x="403" y="140" width="80" height="16" as="geometry"/>
