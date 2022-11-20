@@ -49,7 +49,8 @@ https://docs.google.com/spreadsheets/d/1BH2x0dHObf5wwWf31e20yWtUOaOUpWAffHMTNZYU
 
 # 実装予定の機能
 現在、写真の検索機能を実装中です。<br>
-今後はトップページにあるGoogleマップ上のマーカーをクリックした際、吹き出し内に写真を表示する機能を<br>実装予定です。
+今後はトップページにあるGoogleマップ上のマーカーをクリックした際、吹き出し内に写真を表示する機能を<br>
+実装予定です。
 
 # データベース設計（ER図）
 ![image](https://user-images.githubusercontent.com/110531484/194309839-ffe7fea2-d531-4863-b1f3-98d5d8594fdc.png)
