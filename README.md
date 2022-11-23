@@ -12,7 +12,7 @@ https://original-app-36711.herokuapp.com/
 ・Basic認証ID：admin<br>
 ・Basic認証パスワード：1111<br>
 ・メールアドレス：aaaa@aaaa.com<br>
-・パスワード：111aaa
+・パスワード：111aaa<br>
 
 # 利用方法
 ## 感動スポットを投稿する
