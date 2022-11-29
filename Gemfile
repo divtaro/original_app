@@ -65,3 +65,7 @@ gem "geocoder"
 gem "dotenv-rails"
 gem "font-awesome-sass"
 gem "aws-sdk-s3", require: false
+
+group :production do
+  gem 'pg'
+end
